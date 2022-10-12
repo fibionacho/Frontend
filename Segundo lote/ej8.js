@@ -18,12 +18,9 @@ function faC(cantidad){
    return cel;
 }
 
-
-
 /**Generamos dos arrays donde irán los datos de las conversiones a Celsius y Fahrenheit de las funciones anteriores */
 var aCel=[];
 var aFar=[];
-
 
 /*Para el ejericicio 9, si queremos que pregunte que dato va a introducir cada vez
 hay que meter la línea de abajo dentro del for*/
