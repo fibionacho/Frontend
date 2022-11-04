@@ -1,0 +1,104 @@
+#cuadro{
+    
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    animation-name: cambio;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+
+}
+#marco{
+    box-shadow: 20px 10px 10px black; 
+    margin-left:20% ;
+    margin-right: 20%;
+    border-collapse: collapse;
+    border: 6px solid white;
+    animation-name: marco;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-duration: 0.5s;
+}
+h2{
+    position: relative;
+    display:inline;
+    font-style: oblique;
+    font-family: 'Courier New', Courier, monospace;
+    animation-name: letra;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+}
+
+p{
+    display: inline;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    animation-name: letra;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    
+}
+button{
+    color: white;
+    background-color: black;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+
+@keyframes cambio {
+    from{
+        background-color: purple;
+        
+    }
+    to{
+        background-color: orange;
+    }
+}
+
+@keyframes letra {
+    from{
+     
+        color: white;
+      
+
+    }
+    to{
+        
+        color: black;
+    }
+    
+    
+}
+
+@keyframes marco {
+    0%, 100%{
+        border-top-color: black;
+        border-right-color: rgb(15, 15, 15);
+        border-bottom-color: rgb(37, 36, 36);;
+        border-left-color: rgb(100, 102, 104);
+    }
+    25%{
+        border-top-color: rgb(100, 102, 104);
+        border-right-color: black;
+        border-bottom-color:rgb(15, 15, 15);
+        border-left-color: rgb(37, 36, 36);
+    }
+    50%{
+        border-top-color: rgb(36, 36, 36);
+        border-right-color: rgb(100, 102, 104);
+        border-bottom-color: black;
+        border-left-color:  rgb(15, 15, 15);
+    }
+    75%{
+        border-top-color: rgb(15, 15, 15);
+        border-right-color: rgb(36,36,36);
+        border-bottom-color: rgb(100,100,100);
+        border-left-color: black;
+    }
+    
+}
