@@ -1,0 +1,16 @@
+#cookie{
+    margin-top: 5%;
+    text-align: center;
+}
+button{
+    height: 50px;
+    width: 150px;
+    box-shadow: 20px 10px 10px black; 
+    background-color: greenyellow;
+    color: black;
+    font-weight: bold;
+}
+button:hover{
+    background-color: red;
+    color:white;
+}
