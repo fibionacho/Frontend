@@ -7,12 +7,12 @@ Se devolverá un decimal (float). El estilo de la función debe definirse así: 
 
 
 
-var base=4.45;
-var alt=6.76;
+base=parseFloat(prompt("Introuce un valor para la base"));
+alt=parseFloat(prompt("Introuce un valor para la altura"));
 
 function perimetro(b,a){
     return(Math.round(2*(a*b)*10)/10);
 }
 
 per=perimetro(base,alt);
-console.log(per);
+document.write("EL perimetro es de "+per);
