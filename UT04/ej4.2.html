@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 4.2</title>
+    <script>
+        class Mascotas{
+
+constructor (nombre, cantidad) {
+   this.nombre=nombre;
+   this.cantidad=cantidad;
+}
+
+tostring(){
+   document.write(" nombre "+this.nombre);
+   document.write(" Cantidad de gramos necesarios "+this.cantidad);
+}
+
+}
+class MascotasComida extends Mascotas{
+
+constructor(nombre, cantidad){
+   super(nombre, cantidad);
+}
+
+
+mascotaDias(){
+let comidaDia= 3000/(this.cantidad);
+return document.write(" La comida le dura "+comidaDia+" dias");
+}
+}
+const perro=new MascotasComida("Firulais", 200);
+perro.tostring();
+perro.mascotaDias();
+document.write("<br>");
+const gato= new MascotasComida("Bigotitos", 100);
+gato.tostring();
+gato.mascotaDias();
+document.write("<br>");
+const hamster = new MascotasComida("Galletas",20);
+hamster.tostring();
+hamster.mascotaDias();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
