@@ -1,18 +1,15 @@
-/**Crear un script en el que se pregunte por el número de alumnos 
- * (no superior a 20, ni inferior a 8) que hay en un
-curso, y en función de este dato, pida el nombre de los alumnos 
-y su nota de curso. Al final, se debe mostrar, cada
-alumno con su nota y después la media de todos los alumnos. */
-
+/**PREGUNTAMOS CUANTOS HAY CUMPLIENDO LOS REQUISITIOS */
 
 do{
     var numAlu=parseInt(prompt("Cuantos alumnos hay en clase?"));
 }while(numAlu<8 || numAlu>20);
 
+/**GENERAMOS ARRAYS */
 
 arrAlu=[];
 arrNota=[];
 
+/**PREGUNTAMOS NOMBRES Y NOTAS */
 for(i=0;i<numAlu;i++){
 
     arrAlu[i]=prompt(`Introdzca el nombre del alumno número ${i+1}`);
@@ -21,6 +18,7 @@ for(i=0;i<numAlu;i++){
     }while(arrNota[i]<0 || arrNota[i]>10 );
 }
 
+/**LOS METEMOS EN UNA TABLA */
 function rellenarTabla(ar,br) {
     stringTabla="<tr><th>Alumnos</th></tr>"
     for(i=0;i<ar.length;i++){
