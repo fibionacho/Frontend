@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.2</title>
+
+    <script>
+
+        /*Creamos una funcion que recoja el evento y meta en variables la posicion del raton general y 
+        su relatividad en la pantalla*/
+        function raton(evento){
+            let x= evento.clientX;
+            let y= evento.clientY;
+            let xr= evento.screenX;
+            let yr= evento.screenY;
+            document.getElementById("X").innerText=x;
+            document.getElementById("Y").innerText=y;
+            document.getElementById("XR").innerText=xr;
+            document.getElementById("YR").innerText=yr;
+        }
+        /*Esuchamos el evento de nuestra funcion*/
+        document.addEventListener("mousemove", raton);
+    
+    </script>
+
+    <style>
+        #contenedor{
+            margin: 15% auto 0;
+            width: 150px;
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding-left: 2%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+        #X, #Y, #XR, #YR{
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+        <!--Presentacion en el navegador-->
+        <div id="contenedor">
+            <span>Posicion X: </span>
+                <span id="X"></span>
+                <br>
+            <span>Posicion Y:</span>
+            <span id="Y"></span>
+            <br>
+            <span>Posicion XR: </span>
+            <span id="XR"></span>
+            <br>
+            <span>Posicion YR: </span>
+            <span id="YR"></span>
+        </div>
+        
+</body>
+
+</html>
