@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form{
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin-top: 5%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+    </style>
 </head>
 <body>
     <form action="5.3.html" method="post">
@@ -15,17 +25,30 @@
         <input type="number" name="edad" id="edad" placeholder="Introduzca su edad" min="18" max="75"></input>
         <br>
         <label>Introduzca su género</label>
-        <input type="radio" name="genero" id="generoH">Hombre</input>
-        <input type="radio" name="genero" id="generoM">Mujer</input>
-            <input type="radio" name="genero" id="generoO">Otro</input>
+        <input type="radio" name="genero" class="genero">Hombre</input>
+        <input type="radio" name="genero" class="genero">Mujer</input>
+            <input type="radio" name="genero" class="genero">Otro</input>
         <br>
         <label>Introduzca sus aficiones</label>
             <input type="checkbox" name="hobbie" class="hobbie">Musica</input>
             <input type="checkbox" name="hobbie" class="hobbie">Deporte</input>
             <input type="checkbox" name="hobbie" class="hobbie">Lectura</input>
         <br>
-        <input type="submit" value="submit" id="boton">
+       
     </form>
+    <br><br>
+        <form id="form">
+            <label>Elija un color</label>
+            <br>
+            <input type="radio" name="colores" id="rojo">Rojo</input>
+            <br>
+            <input type="radio" name="colores" id="azul">Azul</input>
+            <br>
+            <input type="radio" name="colores" id="verde">Verde </input>
+            <input type="submit" value="enviar" id="boton">
+
+        </form>
+
     <script>
 
         var boton = document.getElementById("boton");
@@ -34,11 +57,49 @@
             boton.addEventListener("click", () => {
              var nombre=document.getElementById("nombre").value;
              var edad=document.getElementById("edad").value;
-            // var genero[]=document.getElementsByName("genero").value;
+             var genero=document.getElementsByName("genero").value;
              var hobbie=document.getElementsByName("hobbie").value;
 
             alert("El nombre es "+nombre+" con una edad de "+edad+" género: "+genero+" y hobbies "+hobbie);
 });
+
+
+
+
+
+
+/*TODO EL CÓDIGO QUE VIENE ABAJO ES PARA EL FORMULARIO QUE CAMBIA DE COLOR.
+NO HE CONSEGUIDO HACER QUE FUNCIONE*/
+                var colorfull=document.getElementsByName("colores");
+
+                    
+
+            function colorRojo() {
+                document.getElementById("form").style.background="red";
+            }
+            function colorAzul(){
+                document.getElementById("form").style.background="blue";
+            }
+            function colorVerde(){
+                document.getElementById("form").style.background="green";
+            }
+
+            
+            for (let i = 0; i < colorfull.length; i++) {
+                        if (colorfull[0].checked==true){
+                            document.getElementById("form").style.background="red";
+                        }else if(colorfull[1].checked==true){
+                            colorAzul();
+                        }else if(colorfull[2].checked==true){
+                            colorVerde();
+                        }
+                        
+                    }
+
+
+            document.getElementById("rojo").onmouseup=colorRojo();
+            document.getElementById("azul").onsubmit=colorAzul();
+            document.getElementById("verde").onsubmit=colorVerde();
 
 
     </script>
