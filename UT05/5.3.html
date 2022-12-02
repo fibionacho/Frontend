@@ -40,7 +40,7 @@
         <form id="form">
             <label>Elija un color</label>
             <br>
-            <input type="radio" name="colores" id="rojo">Rojo</input>
+            <input type="radio" name="colores" id="rojo" onclick="colorRojo">Rojo</input>
             <br>
             <input type="radio" name="colores" id="azul">Azul</input>
             <br>
@@ -77,6 +77,10 @@ NO HE CONSEGUIDO HACER QUE FUNCIONE*/
             function colorRojo() {
                 document.getElementById("form").style.background="red";
             }
+
+
+
+            
             function colorAzul(){
                 document.getElementById("form").style.background="blue";
             }
