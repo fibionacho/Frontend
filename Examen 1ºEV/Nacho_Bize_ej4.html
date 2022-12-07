@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--4.- Desarrollar un script que permita ingresar un array de 10 elementos numéricos, e informe:
+- El valor acumulado de todos los elementos del array.
+- El valor acumulado de los elementos del array que sean menores de 600.
+- Numero de valores cuyo valor es superior a 2000. (1 pto.)-->
+</head>
+<body>
+    
+<script>
+
+    miArray=[];
+
+   
+cont=0;
+
+do{
+    miArray.push(parseInt(prompt("Introduce un valor al array")));
+    cont++;
+}while(cont!=10)
+
+
+
+let a=0;
+
+
+for(i=0; i<miArray.length; i++){
+    
+    a+=miArray[i];
+   
+}
+
+
+document.write(`tiene un valor acumulado de ${a}`);
+
+var nuevAcum=0;
+for (i=0; i<miArray.length;i++){
+    if(miArray[i]<600){
+        nuevAcum+=miArray[i];
+    }
+}
+
+document.write(`El valor acumulado de valores superiores a 600 es de ${nuevAcum}`);
+
+
+
+
+contador=0;
+for(i=0; i<miArray.length; i++){
+    if(miArray[i]>2000){
+        contador++;
+    }
+}
+document.write(`Existen ${contador} valores por encima de 2000`);
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+
+    <!--2.- Declarar una clase llamada Jugador, que reciba tres valores: nombre, edad, ciudad. Definir la
+propiedad para mostrar los valores. Y otra clase Campeonato con el atributo puntuación y un método
+que informa de que, si la puntuación es mayor que 50, el jugador irá al campeonado. Realizarlo con el
+concepto de herencia. (1 pto.)-->
+</head>
+<body>
+    
+<script>
+
+
+class Jugador{
+
+    constructor(nombre, edad, ciudad){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.ciudad=ciudad;
+    }
+    toString(){
+        document.write(`El jugador ${this.nombre} tiene ${this.edad} y viene de ${this.ciudad}`);
+
+    }
+}
+
+class Campeonato extends Jugador{
+    
+    constructor(nombre, edad, ciudad, puntuacion){
+        super(nombre, edad, ciudad);
+        this.puntuacion=puntuacion;
+    }
+
+
+
+  competir() {
+        if(this.puntuacion>=50){
+            return document.write(" Jugará el campeonato");
+        }else{
+            return document.write(" No jugará el campeonato");
+        }
+    }
+}
+
+
+const Jugador1 = new Campeonato("Pedro",27, "Ciudad Real", 24);
+const Jugador2 = new Campeonato ("Alicia", 23, "Guadalajara", 50);
+Jugador1.toString();
+Jugador1.competir();
+document.write("<br>")
+Jugador2.toString();
+Jugador2.competir();
+
+</script>
+
+
+
+
+</body>
+</html>

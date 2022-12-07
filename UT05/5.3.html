@@ -40,11 +40,11 @@
         <form id="form">
             <label>Elija un color</label>
             <br>
-            <input type="radio" name="colores" id="rojo" onclick="colorRojo">Rojo</input>
+            <input type="radio" name="colores" id="rojo" onclick="colorRojo()">Rojo</input>
             <br>
-            <input type="radio" name="colores" id="azul">Azul</input>
+            <input type="radio" name="colores" id="azul" onclick="colorAzul()">Azul</input>
             <br>
-            <input type="radio" name="colores" id="verde">Verde </input>
+            <input type="radio" name="colores" id="verde" onclick="colorVerde()">Verde </input>
             <input type="submit" value="enviar" id="boton">
 
         </form>
@@ -80,7 +80,7 @@ NO HE CONSEGUIDO HACER QUE FUNCIONE*/
 
 
 
-            
+
             function colorAzul(){
                 document.getElementById("form").style.background="blue";
             }

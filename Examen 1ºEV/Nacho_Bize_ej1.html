@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <h1>Formulario Discográfico</h1>
+    <form action="Nacho_Bize_ej1.html" method="post">
+        <label for="">Nombre del Disco</label>
+        <input type="text" name="nombre" id="nombre" placeholder="xxxxxxxxxxxxxxxxx" maxlength="25" >
+        <br>
+        <input type="checkbox" name="prestado" id="prestadoSI">Prestado si
+        <input type="checkbox" name="prestado" id="prestadoNO">Prestado no
+        <br>
+        <label for="">Usuario del prestamo:</label>
+        <input type="text" name="usuario" id="usuario" placeholder="xxxxxxxxxxxxxx" maxlength="25">
+        <br>
+        <label for="">Telefono</label>
+        <input type="tel" name="telefono" id="telefono" >
+        <br>
+        <label for="">Comentario</label>
+        <br>
+        <textarea name="comentario" id="comentario" cols="30" rows="10" maxlength="300" placeholder="---Comentario sobre el album-----"></textarea>
+        <input type="button" value="enviar" id="boton">
+
+    </form>
+
+            <script>
+
+
+
+            const requeridoDisco = document.getElementById('nombre');
+             requeridoDisco.setAttribute('required', '');
+
+             const requeridoUsuario = document.getElementById("usuario");
+             requeridoUsuario.setAttribute("required","");
+
+
+
+
+                var boton = document.getElementById("boton");
+
+                boton.addEventListener("click",() =>{
+                    var nombre = document.getElementById("nombre").value;
+                    var box = document.getElementById("prestadoSI").value;
+                    var box2 = document.getElementById("prestadoNO").value;
+                    var usu = document.getElementById("usuario").value;
+                    var tfno = document.getElementById("telefono").value;
+                    var coment = document.getElementById("comentario").value;
+
+
+                    alert(`Nombre del disco: ${nombre}, Prestamo positivo: ${box} Prestamo negativo: ${box2}, nombre del usuario: ${usu}, telefono de usuario: ${tfno}. Comentarios: ${coment}`);
+                }
+                )
+
+            </script>
+
+
+
+</body>
+</html>

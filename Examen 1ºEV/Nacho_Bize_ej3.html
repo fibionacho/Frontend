@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+    <!--3.- Realizar una web para gestionar el evento click del ratón:
+- Si es pulsado el botón (llamado ColorFondo), la página cambiará de color (color aleatorio).
+- Si es pulsado cualquier otra parte del documento, el color de la página debe volver a blanco.
+- Debes utilizar tres tipos de manejadores de eventos, según los apuntes de clase. (2ptos)-->
+</head>
+<body id="cuerpo">
+    
+    <button id="colorFondo" name="colorFondo">Púlsame</button>
+
+
+    <script>
+
+        document.getElementById("colorFondo").onclick=cambiarColor;
+        document.getElementById("cuerpo").onmousemove=volveraBlanco;
+
+        function cambiarColor() {
+            num = parseInt(Math.random()*(5))
+            switch (num) {
+                case 0:
+                    document.getElementById("cuerpo").style.background="orange";
+                    break;
+                case 1:
+                    document.getElementById("cuerpo").style.background="green";
+                    break;   
+                case 2:
+                    document.getElementById("cuerpo").style.background="red";
+                    break; 
+                case 3:
+                    document.getElementById("cuerpo").style.background="red";
+                    break;
+                case 4:
+                    document.getElementById("cuerpo").style.background="black";
+                    break;
+                case 5:
+                    document.getElementById("cuerpo").style.background="yellow";
+                    break;
+            
+            }
+        }
+
+function volveraBlanco() {
+    document.getElementById("cuerpo").style.background="white";
+    
+}
+
+
+
+    </script>
+</body>
+</html>
