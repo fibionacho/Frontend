@@ -13,6 +13,11 @@
     <h2>otro parrafo pero sin id</h2>
 
 
+    <ul id="todo">
+
+    </ul>
+
+
     <script type="text/javascript">
         var parrafo = document.getElementById("parrafo");
         var otroParrafo = document.getElementsByTagName('h2');
@@ -20,8 +25,38 @@
         console.log(parrafo.innerText);
         console.log(otroParrafo);
         otroParrafo[0].id = "id_de_prueba";
-        parrafo.style.color="blue";
-        parrafo.style.backgroundColor="red";
+        parrafo.style.color = "blue";
+        parrafo.style.backgroundColor = "red";
+
+        var tareas = [
+            "Hacer la compra",
+            "Tirar la basura",
+            "Poner lavadora"
+        ];
+        var toDoList = document.querySelector('#todo');
+        console.log(toDoList);
+
+        for (var i = 0; i < tareas.length; i++) {
+            var tarea = tareas[i];
+            var li = document.createElement('li');
+            li.textContent = tarea;
+            li.id = 'elemento_' + i;
+            toDoList.appendChild(li);
+        }
+
+        var elementoAEliminar = document.getElementById('elemento_2');
+        toDoList.removeChild(elementoAEliminar);
+
+      
+        /*
+            esto para hacerlo cronometrado
+
+              setTimeout(function () {
+            var elementoAEliminar = document.getElementById('elemento_2');
+            toDoList.removeChild(elementoAEliminar);
+        }, 2000);
+        
+        */
 
     </script>
 </body>
