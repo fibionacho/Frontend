@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="dinamico">Esto es un párrafo dinámico</h1>
+    </div>
+    <button id="color">Cambiar de color</button>
+    <button id="fuente">Cambiar fuente</button>
+
+
+    <script type="text/javascript">
+
+
+
+
+        var color = document.getElementById('color');
+        var text = document.getElementById("dinamico");
+        var fuente = document.getElementById("fuente");
+
+
+
+
+        /*Esta función asigna un valor random a unos de los posibles rgb (0-255)
+        y para recorrer el array*/
+        function random(numMaximo) {
+            return Math.round(Math.random() * numMaximo);
+        }
+
+
+        
+
+
+        /*La funcion del evento crea un array de 3 posiciones cada una a un elemento rgb y 
+        accedemos al estilo del bg-color del body y asignamos estos valores aleatorios*/
+        color.addEventListener("click", function (evento) {
+            var randomColor = [
+                random(255),
+                random(255),
+                random(255),
+            ];
+            text.style.color = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
+        });
+
+        /*Esta funcion va a asignar uno de los valores del array al estilo de la fuente */
+        fuente.addEventListener("click", function (evento) {
+            var estilos = ["Fantasy","Roman", "cursive", "sans-serif","Decorative"];
+            var n = random(5);
+            text.style.fontFamily = estilos[n];
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
