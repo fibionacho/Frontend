@@ -24,6 +24,10 @@ const miFuncion = (val) => {
     });
 }
 
+
+
+//igual que arriba pero con manejadores no hay que introducir directamente 
+//las funciones
 const funcExito = (res) => {
     console.log(res)
 };
@@ -56,4 +60,44 @@ new Promise(function (resolve, reject) {
     return result * 2;
 });
 
-//min 5.48
+
+
+let promise = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve(1), 1000);
+});
+
+promise.then((result) => {
+    alert(result); //1
+    return result * 2;
+});
+promise.then((result) => {
+    alert(result); //1
+    return result * 2;
+});
+promise.then((result) => {
+    alert(result); //1
+    return result * 2;
+});
+
+
+//ERROR Y GESTION
+
+/*Un error capturado por el bloque catch se considerará manejado si este manejador no lanza a asu vez un nuevo error y 
+continuará su ejecución */
+new Promise((resolve, reject) => {
+    throw new Error("Error!");
+}).catch((error) => {
+    alert("El error ha sido manejado con exito");
+}).then(() => alert("este manejador se ejecuta"));
+
+/**Un Manejador de eeror que lance un nuevo error será manejado por el siguiente catch mas cercano */
+
+new Promise((resolve, reject) => {
+    throw new Error("Error!");
+}).catch((error) => {
+    throw error;
+    
+}).then(() => alert("este manejador no se ejecuta"))
+.catch((error)=> {
+    alert("Este manejador se ejecuta con el error");
+});
