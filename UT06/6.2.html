@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ej6.2</title>
+</head>
+
+<body>
+
+    <input type="number" name="numero" id="numero">
+    <button id="agregar">crear checkbox</button>
+    <input type='checkbox'>
+    </form>
+
+    <ul id="todo">
+
+    </ul>
+    <script>
+
+        var num = document.getElementById("numero").value;
+
+        var toDoList = document.querySelector('#todo');
+        console.log(toDoList);
+
+        function agregarTarea() {
+            var li = document.createElement("li");
+            li.innerHTML = "<input type='checkbox'>";
+            toDoList.appendChild(li);
+
+        }
+        var agregarBoton = document.getElementById("agregar");
+
+
+        agregarBoton.addEventListener("click", function (evento) {
+            var todoValue = document.getElementById("numero").value;
+            for (i = 0; i < todoValue; i++) {
+               
+                agregarTarea();
+            }
+
+        });
+    </script>
+</body>
+
+</html>
