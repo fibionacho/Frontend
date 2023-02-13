@@ -20,7 +20,7 @@
 
         formulario.addEventListener("submit", e => {
             e.preventDefault();//pijadita obligatoria para que no se resetee el formulario
-            fetch("http://localhost/7.php", {
+            fetch("http://localhost:8000/7.php", {
                 method: "POST",
                 body: new FormData(formulario)
             }).then(res => res.json())
