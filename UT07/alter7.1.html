@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de información personal</h1>
+    <form id="personal-info-form" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre"><br>
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" name="apellidos" id="apellidos"><br>
+      <label for="dni">DNI:</label>
+      <input type="text" name="dni" id="dni"><br>
+      <label for="estudios">Estudios:</label>
+      <input type="text" name="estudios" id="estudios"><br>
+      <button type="submit">Guardar</button>
+      <button type="button" id="borrar-btn">Borrar usuario</button>
+    </form>
+    <div id="mensaje"></div>
+
+
+    <script>
+
+document.getElementById("borrar-btn").addEventListener("click", function() {
+  var dni = document.getElementById("dni").value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("DELETE", "borrar-usuario.php?dni=" + dni);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      document.getElementById("mensaje").textContent = "Usuario eliminado correctamente.";
+    } else {
+      document.getElementById("mensaje").textContent = "Error al eliminar usuario.";
+    }
+  };
+  xhr.send();
+});
+
+    </script>
+</body>
+</html>
