@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generador de Listado de Checkboxes</h1>
+	<form>
+		<label for="num-checkboxes">Número de Checkboxes:</label>
+		<input type="number" id="num-checkboxes" min="1" required>
+		<button type="submit" onclick="generateCheckboxes()">Generar Checkboxes</button>
+	</form>
+	<div id="checkbox-list"></div>
+
+
+
+    <script>
+        function generateCheckboxes() {
+            event.preventDefault(); // Prevenimos la recarga de la página
+	// Obtenemos el número de checkboxes a generar
+	const numCheckboxes = document.getElementById('num-checkboxes').value;
+
+	// Creamos el listado de checkboxes y lo agregamos al HTML
+	const checkboxList = document.getElementById('checkbox-list');
+	checkboxList.innerHTML = '';
+
+	for (let i = 1; i <= numCheckboxes; i++) {
+		// Creamos un checkbox y lo agregamos al listado
+		const checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.name = 'checkbox-' + i;
+		checkbox.id = 'checkbox-' + i;
+		checkbox.value = Math.round(Math.random());
+
+		// Creamos una etiqueta para el checkbox y la agregamos al listado
+		const label = document.createElement('label');
+		label.htmlFor = 'checkbox-' + i;
+		label.appendChild(document.createTextNode('Checkbox ' + i));
+
+		// Agregamos el checkbox y la etiqueta al listado
+		checkboxList.appendChild(checkbox);
+		checkboxList.appendChild(label);
+		checkboxList.appendChild(document.createElement('br'));
+	}
+}
+
+    </script>
+</body>
+</html>
