@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form method="POST" id="formulario">
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" name="dni"><br><br>
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre"><br><br>
+
+  <label for="apellido">Apellido:</label>
+  <input type="text" id="apellidos" name="apellidos"><br><br>
+
+  <label for="estudios">Estudios:</label>
+  <input type="text" id="estudios" name="estudios"><br><br>
+
+  <input type="submit" value="Guardar">
+</form>
+
+<br>
+
+<form method="POST" id="formulario-borrar">
+  <label for="dni_borrar">DNI a borrar:</label>
+  <input type="text" id="dni_borrar" name="dni_borrar"><br><br>
+
+  <input type="submit" value="Borrar">
+</form>
+
+
+
+    <script>
+        // Función para enviar datos del formulario de inserción
+function enviarFormulario() {
+  const form = document.querySelector('#formulario');
+  const formData = new FormData(form);
+
+  fetch('http://localhost:8080/insertar.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    form.reset();
+  })
+  .catch(error => console.error(error));
+}
+
+// Función para enviar datos del formulario de borrado
+function borrarUsuario() {
+  const form = document.querySelector('#formulario-borrar');
+  const formData = new FormData(form);
+
+  fetch('http://localhost:8080/borrar.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    form.reset();
+  })
+  .catch(error => console.error(error));
+}
+
+// Escuchar evento submit del formulario de inserción
+document.querySelector('#formulario').addEventListener('submit', function(event) {
+  event.preventDefault();
+  enviarFormulario();
+});
+
+// Escuchar evento submit del formulario de borrado
+document.querySelector('#formulario-borrar').addEventListener('submit', function(event) {
+  event.preventDefault();
+  borrarUsuario();
+});
+
+    </script>
+</body>
+</html>
