@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <button class="boton" id="primavera">Primavera</button>
+    <button class="boton" id="verano">Verano</button>
+    <button class="boton" id="otono">Otoño</button>
+    <button class="boton" id="invierno">Invierno</button>
+
+    
+		<img id="imagen" class="imagen" src="" alt="Imagen de la estación">
+	
+
+    <script>
+        const botonPrimavera = document.getElementById("primavera");
+        const botonVerano = document.getElementById("verano");
+        const botonOtonio = document.getElementById("otono");
+        const botonInvierno = document.getElementById("invierno");
+        const imagen = document.getElementById("imagen");
+
+
+// Configuramos las solicitudes Fetch para obtener las imágenes del servidor
+            const fetchImage = async (season) => {
+                const respuesta = await fetch(`ejercicio4.php?season=${season}`,); //Hacemos que la respuesta sea un $_GET[season] cargada en URL
+                const datosAwait = await respuesta.blob();//A espera de respuesta
+                const Url = URL.createObjectURL(datosAwait);
+                imagen.src = Url;
+            }
+
+
+//eventos onclick
+        botonPrimavera.addEventListener("click", () => {
+        fetchImage("primavera");
+        });
+         botonVerano.addEventListener("click", () => {
+            fetchImage("verano");
+          });
+        botonOtonio.addEventListener("click", () => {
+            fetchImage("otonio");
+        });
+        botonInvierno.addEventListener("click", () => {
+            fetchImage("invierno");
+        });
+
+    </script>
+
+
+</body>
+
+</html>
