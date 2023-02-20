@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, <a href="http://prueba"> adipiscing elit.</a> Sed mattis enim vitae orci.
+         Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, 
+         turpis. Quisque sapien nunc, <a href="http://prueba">posuere vitae, rutrum et,</a> luctus at, pede. 
+         Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. 
+         Nullam sit amet nisl elementum elit convallis malesuada. 
+         Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Fusce porta. 
+         Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu,
+          at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.
+    </p>
+
+    <p>
+    Lorem ipsum dolor sit amet, <a href="http://prueba"> adipiscing elit.</a> Sed mattis enim vitae orci.
+    Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, 
+    turpis. Quisque sapien nunc, <a href="http://prueba3">posuere vitae, rutrum et,</a> luctus at, pede. 
+    Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. 
+    Nullam sit amet nisl elementum lit convallis malesuada. 
+    Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Fusce porta. 
+    Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu,
+     at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.
+</p>
+<p>
+
+Lorem ipsum dolor sit amet, <a href="http://prueba"> adipiscing elit.</a> Sed mattis enim vitae orci.
+    Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, 
+    turpis. Quisque sapien nunc, <a href="http://prueba4">posuere vitae, rutrum et,</a> luctus at, pede. 
+    Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. 
+    Nullam sit amet nisl elementum lit convallis malesuada. 
+    Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Fusce porta. 
+    Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu,
+     at posuere ante quam non dolor. <a href="http://prueba5">Lorem ipsum dolor sit amet</a>, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.
+</p>
+<p id = "informacion"></p>
+
+
+<script>
+
+    var info = document.getElementById("informacion");
+//cantidad de enlaces
+     var enlaces = document.getElementsByTagName("a");
+     info.innerHTML =`Hay ${enlaces.length} enlaces`;
+
+//Direccion del penúltimo enlace
+    var mensaje = `el penúltimo mensaje dirije a ${enlaces[enlaces.length-2].href}`;
+    info.innerHTML+= "<br>"+mensaje;
+
+//Numero de enlaces que apuntan a http://prueba    
+
+    var contador = 0;
+    for (let index = 0; index < enlaces.length; index++) {
+       if (enlaces[index].href=="http://prueba"||enlaces[index].href=="http://prueba/"){
+        contador++;
+       }
+        
+    }
+    info.innerHTML+="<br>"+`Hay ${contador} enlaces que apuntan a http://prueba`+"<br>";
+
+
+    //numero de enlaces del tercer párrafo
+
+    var parrafo = document.getElementsByTagName("p");
+    enlaces= parrafo[2].getElementsByTagName("a");
+    info.innerHTML+=`hay ${enlaces.length} enlaces en el tercer párrafo`;
+
+</script>
+</body>
+</html>
