@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Insertar usuario</h1>
+    <form action="7.1.php" method="post" id="formulario1">
+       Nombre <input type="text" name="name" id="name">
+       <br>
+       Apellido <input type="text" name="apellido" id="apellido">
+       <br>
+       DNI <input type="text" name="dni" id="dni">
+       <br>
+       Estudios <input type="text" name="estudios" id="estudios">
+       <br>
+     <input type="submit" name="registrar" value="Registrar">
+     <button type="button" id="borrar-btn">Borrar usuario</button>
+    </form>
+<br><br>
+
+
+<h1>Eliminar por dni</h1>
+    <form action="" method="post">
+        DNI <input type="text" name="dni2" id="dni2">
+    </form>
+
+
+<script>
+    let formulario = document.getElementById("formulario1");
+    formulario.addEventListener("submit", e => {
+            e.preventDefault();//pijadita obligatoria para que no se resetee el formulario
+            fetch("http://localhost:8000/7.1.php", {
+                method: "POST",
+                body: new FormData(formulario)
+            }).then(res => res.json())
+                .then(data => console.log(data));
+        });
+
+
+</script>
+
+</body>
+</html>

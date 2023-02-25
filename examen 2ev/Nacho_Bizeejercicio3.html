@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de registro</h1>
+	<form id="formulario" onsubmit="return validarFormulario()">
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre">
+
+		<label for="dni">DNI:</label>
+		<input type="text" id="dni" name="dni">
+
+		<label for="edad">Edad:</label>
+		<input type="number" id="edad" name="edad">
+
+		<input type="submit" value="Enviar">
+	</form>
+
+	<script>
+		function validarFormulario() {
+			var nombre = document.getElementById("nombre").value;
+			var dni = document.getElementById("dni").value;
+			var edad = document.getElementById("edad").value;
+
+			// Validar nombre
+			if (nombre === "") {
+				alert("El nombre es obligatorio");
+				return false;
+			}
+
+			// Validar DNI con la expRef
+			var patronDni = /^[0-9]{8}[A-Za-z]{1}$/;
+			if (!patronDni.test(dni)) {
+				alert("El DNI debe tener 8 números seguidos de una letra");
+				return false;
+			}
+
+			// Validar edad con la API de validación
+			var inputEdad = document.getElementById("edad");
+			if (!inputEdad.checkValidity()) {
+				alert(inputEdad.validationMessage);
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+</html>

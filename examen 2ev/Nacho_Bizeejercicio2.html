@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista">
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+    </ul>
+    <button id="agregar" onclick="agregar()">Agregar elemento</button>
+
+    <script>
+        //Acceso al elemento
+        var lista =document.querySelector("#lista");
+
+
+        function agregar(){
+            //Esto es par que no se me recargue sola la pagina
+            event.preventDefault();
+            //Seleccion de elementos y añadir (append)
+            var lista = document.getElementById("lista");
+			var nuevoElemento = document.createElement("li");
+           
+			var valorAleatorio ="Nuevo elemento: "+(Math.random() * 100); 
+			var texto = document.createTextNode(valorAleatorio);
+			nuevoElemento.appendChild(texto);
+			lista.appendChild(nuevoElemento);
+		}
+
+        
+    </script>
+
+</body>
+</html>

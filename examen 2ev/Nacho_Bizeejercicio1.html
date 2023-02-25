@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="ejercicio1.html" method="get">
+        ¿Mi deporte favorito?<input type="text" name="deporte" id="deporte"><br>
+        ¿Mi serie favorita?<input type="text" name="serie" id="serie"><br>
+        <input type="submit" value="enviar" id="enviar" onclick="pintar()">
+    </form>
+    <div id="resultado" class="resultado"></div>
+    <div id="depo" class="resultado"></div>
+    <div id="series" class="resultado"></div>
+   
+
+    <script>
+
+      
+
+        function pintar() {
+            //para que no se me recargue la pagina
+            event.preventDefault();
+            var deporte = document.getElementById("deporte").value;
+
+         
+
+            var serie = document.getElementById("serie").value+"<br>";
+
+            var resultado = document.getElementById("resultado")
+
+            var mensaje1= "Mis aficiones..."+"<br>";
+           
+       
+            var cabDeporte = "Mi deporte favorito "+"<br>";
+            var cabSserie = "<br>"+"Mi serie favorita "+"<br>";
+            var depo=document.getElementById("depo");
+            //Los separo en bloques de colores porque no se hacerlo todos juntos
+            resultado.innerHTML=mensaje1
+            resultado.style.color="blue";
+            depo.innerHTML= cabDeporte+deporte;
+            depo.style.color="green";
+            series.innerHTML= cabSserie+serie;
+            series.style.color="red";
+          
+
+        }
+
+
+    </script>
+</body>
+</html>

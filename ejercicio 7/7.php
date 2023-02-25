@@ -4,6 +4,7 @@ require("db.php");
 
 if (isset($_POST)) {
     $name = $_POST["nombre"];
+    
     $consulta = $db->prepare("SELECT Nombre from alumnos WHERE Nombre = :nombre LIMIT 1");
     $consulta->execute([":nombre" => $name]);
     $user = $consulta->fetch();

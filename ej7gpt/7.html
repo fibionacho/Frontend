@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="insertar.php">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni"><br><br>
+      
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+      
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellidos" name="apellidos"><br><br>
+      
+        <label for="estudios">Estudios:</label>
+        <input type="text" id="estudios" name="estudios"><br><br>
+      
+        <input type="submit" value="Guardar">
+      </form>
+      
+      <br>
+      
+      <form method="POST" action="borrar.php">
+        <label for="dni_borrar">DNI a borrar:</label>
+        <input type="text" id="dni_borrar" name="dni_borrar"><br><br>
+      
+        <input type="submit" value="Borrar">
+      </form>
+      <script>
+        function validarFormulario() {
+            var dni = document.getElementById("dni").value;
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var estudios = document.getElementById("estudios").value;
+
+            if (dni === "" || nombre === "" || apellido === "" || estudios === "") {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+            }
+
+      </script>
+</body>
+</html>

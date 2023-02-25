@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Estaciones</title>
+ 
+    </style>
+  </head>
+  <body>
+    <h1>Estaciones</h1>
+    <button id="primavera-btn">Primavera</button>
+    <button id="verano-btn">Verano</button>
+    <button id="otono-btn">Otoño</button>
+    <button id="invierno-btn">Invierno</button>
+    <div id="imagen-container"></div>
+    <script>
+      // Función para cargar la imagen correspondiente a la estación
+      function cargarImagen(nombreEstacion) {
+        // URL del servidor donde se encuentran las imágenes
+        const url = "https://es.wikipedia.org/wiki/Invierno#/media/Archivo:AchenseeWinter05.JPG";
+        // Nombre del archivo de imagen correspondiente a la estación
+        const nombreArchivo = nombreEstacion.toLowerCase() + ".jpg";
+        // URL completa del archivo de imagen
+        const urlImagen = url + nombreArchivo;
+        // Elemento HTML donde se mostrará la imagen
+        const imagenContainer = document.getElementById("imagen-container");
+        // Se utiliza la API fetch para recuperar la imagen del servidor
+        fetch(urlImage,{
+            headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"}
+        })
+          .then(response => {
+            
+            // Si la respuesta es correcta, se muestra la imagen en la página
+            if (response.ok) {
+              imagenContainer.innerHTML = `<img src="${urlImagen}" alt="${nombreEstacion}">`;
+            }
+            // Si la respuesta no es correcta, se muestra un mensaje de error
+            else {
+              imagenContainer.innerHTML = "Error al cargar la imagen";
+            }
+          })
+          .catch(error => {
+            // Si ocurre un error, se muestra un mensaje de error
+            imagenContainer.innerHTML = "Error al cargar la imagen";
+          });
+      }
+      // Eventos de click para cada botón
+      document.getElementById("primavera-btn").addEventListener("click", () => {
+        cargarImagen("Primavera");
+      });
+      document.getElementById("verano-btn").addEventListener("click", () => {
+        cargarImagen("Verano");
+      });
+      document.getElementById("otono-btn").addEventListener("click", () => {
+        cargarImagen("Otoño");
+      });
+      document.getElementById("invierno-btn").addEventListener("click", () => {
+        cargarImagen("Invierno");
+      });
+    </script>
+  </body>
+</html>
