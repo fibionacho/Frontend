@@ -5,6 +5,7 @@ function App() {
 
   const [position, setPosition]= useState({x:0, y:0})
 
+  //pointer move
   useEffect(()=> {
     const handleMove = (event) =>{
       const{clientX, clientY} = event
@@ -17,8 +18,16 @@ function App() {
     return()=>{
       window.removeEventListener('pointermove',handleMove)
     }
+  },[enabled])
 
-  },[{enabled}])
+  // change body className
+
+  useEffect(()=>{
+    document.body.classList.toggle('no-cursor', enabled)
+    return()=>{
+      document.body.classList.remove('no-cursor')
+    }
+  },[enabled])
 
   return (
     <main>
@@ -34,7 +43,6 @@ function App() {
         height: 40,
         transform: `translate(${position.x}px, ${position.y}px)`
       }}>
-
       </div>
       <h3>Proyecto 3</h3>
       <button onClick={() => setEnabled(!enabled)}>
