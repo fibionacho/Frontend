@@ -1,34 +1,12 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import { getRandomFact } from './services/facts'
+import { useCatImage } from './hooks/useCatImage'
+import { useCatFact } from './hooks/useCatFact'
 
-function useCatImage ({ fact }) {
-  const [imageUrl, setImageUrl] = useState()
-  // efecto para cargar la imagen relacionada
-  useEffect(() => {
-    if (!fact) return
-    const firstWord = fact.split(' ', 3).join(' ')
-    console.log(firstWord)
-    fetch(`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`)
-      .then(res => res.json())
-      .then(response => {
-        const { url } = response
-        setImageUrl(`https://cataas.com/${url}`)
-      })
-  }, [fact])
-  return { imageUrl }
-}
 export function App () {
-  const [fact, setFact] = useState()
+  const { fact, getFactAndUpdateReactState } = useCatFact()
   const { imageUrl } = useCatImage({ fact })
-  // efecto para recuperar el dato
-  useEffect(() => {
-    getRandomFact().then(setFact)
-  }, [])
-
   const handeClick = async () => {
-    const newFact = await getRandomFact()
-    setFact(newFact)
+    getFactAndUpdateReactState()
   }
 
   return (
