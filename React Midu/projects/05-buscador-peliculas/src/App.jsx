@@ -1,8 +1,11 @@
-
 import './App.css'
+import { Movies } from './components/Movies'
+import { useMovies } from './hooks/useMovies'
+
+
 
 function App() {
- 
+  const { movies: mappedMovies } = useMovies()
   return (
     <div className='page'>
       <header>
@@ -13,8 +16,9 @@ function App() {
           <button type='submit'>Buscar</button>
         </form>
       </header>
+
       <main>
-        Aqui irán los resultados
+       <Movies movies={mappedMovies}/>
       </main>
     </div>
   )
