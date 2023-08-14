@@ -1,6 +1,7 @@
+import './App.css'
+import { useMovies } from './hooks/useMovies.js'
 import { useEffect,  useState, useRef } from 'react'
-import { Movies } from './components/Movies'
-import { useMovies } from './hooks/useMovies'
+import { Movies } from './components/Movies.jsx'
 
 function useSearch(){
   const [search, updateSearch] = useState('')
@@ -60,7 +61,7 @@ function App() {
       </header>
 
       <main>
-       <Movies movies={mappedMovies}/>
+       <Movies movies={movies}/>
       </main>
     </div>
   )
